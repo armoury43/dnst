@@ -1,0 +1,43 @@
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you run, what did you expect, what did you get?
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and full output
+      description: Run the command again with `-v` (for example `dnstune -v bench`) and paste everything.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: dnstune version
+      description: Output of `dnstune --version`
+    validations:
+      required: true
+  - type: input
+    id: distro
+    attributes:
+      label: Distribution and version
+      placeholder: Ubuntu 24.04
+    validations:
+      required: true
+  - type: input
+    id: resolved
+    attributes:
+      label: systemd version
+      description: Output of `systemctl --version | head -1`
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Probe engine
+      options: [python, go, not sure]

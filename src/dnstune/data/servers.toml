@@ -1,0 +1,86 @@
+# dnstune built-in resolver catalog.
+#
+# Only long-established, publicly documented resolvers live here, so the list
+# does not rot. Regional or private resolvers belong in your own file:
+#     dnstune bench --servers my-servers.toml
+# (see examples/custom-servers.toml).
+#
+# filtering = true  ->  the resolver blocks ads, malware or adult domains by
+#                       default. Such servers are skipped unless you pass
+#                       --include-filtering.
+
+schema_version = 1
+
+[[server]]
+label = "Cloudflare"
+provider = "cloudflare"
+address = "1.1.1.1"
+
+[[server]]
+label = "Cloudflare (secondary)"
+provider = "cloudflare"
+address = "1.0.0.1"
+
+[[server]]
+label = "Google"
+provider = "google"
+address = "8.8.8.8"
+
+[[server]]
+label = "Google (secondary)"
+provider = "google"
+address = "8.8.4.4"
+
+[[server]]
+label = "Quad9 (unfiltered)"
+provider = "quad9"
+address = "9.9.9.10"
+
+[[server]]
+label = "Quad9 (unfiltered, secondary)"
+provider = "quad9"
+address = "149.112.112.10"
+
+[[server]]
+label = "OpenDNS"
+provider = "opendns"
+address = "208.67.222.222"
+
+[[server]]
+label = "OpenDNS (secondary)"
+provider = "opendns"
+address = "208.67.220.220"
+
+[[server]]
+label = "Mullvad"
+provider = "mullvad"
+address = "194.242.2.2"
+
+[[server]]
+label = "DNS.SB"
+provider = "dnssb"
+address = "185.222.222.222"
+
+[[server]]
+label = "Quad9 (malware blocking)"
+provider = "quad9"
+address = "9.9.9.9"
+filtering = true
+
+[[server]]
+label = "AdGuard (ad blocking)"
+provider = "adguard"
+address = "94.140.14.14"
+filtering = true
+
+[[server]]
+label = "AdGuard (ad blocking, secondary)"
+provider = "adguard"
+address = "94.140.15.15"
+filtering = true
+
+[[server]]
+label = "CleanBrowsing (security)"
+provider = "cleanbrowsing"
+address = "185.228.168.9"
+filtering = true

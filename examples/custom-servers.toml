@@ -1,0 +1,24 @@
+# Example custom resolver catalog. Use it with:
+#   dnstune bench --servers examples/custom-servers.toml
+#
+# Addresses below are from the documentation range (RFC 5737) and will not
+# answer. Replace them with resolvers you actually use, taken from the
+# operator's own website.
+
+schema_version = 1
+
+[[server]]
+label = "My ISP resolver"
+provider = "myisp"            # lowercase letters, digits, . _ -
+address = "192.0.2.53"
+
+[[server]]
+label = "My ISP resolver (secondary)"
+provider = "myisp"
+address = "192.0.2.54"
+
+[[server]]
+label = "Office resolver (IPv6)"
+provider = "office"
+address = "2001:db8::53"
+filtering = true              # blocks some categories by default
